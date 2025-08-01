@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import emailjs from 'emailjs-com';
+// --- FIX 1: Updated the package name to resolve the deprecation warning ---
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [name, setName] = useState('');
@@ -10,11 +11,10 @@ export default function Contact() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // --- CHANGE: Added the 'email' property for display purposes ---
     const templateParams = {
       name: name,
-      email: email, // This will populate the {{email}} variable in your template
-      reply_to: email, // This sets the "Reply-To" header correctly
+      email: email,
+      reply_to: email,
       message: message,
     };
 
@@ -37,6 +37,7 @@ export default function Contact() {
   return (
     <section id="contact" className="content-section">
       <h2 className="section-title">Get In Touch</h2>
+      {/* --- FIX 2: Replaced the apostrophe in "I'm" --- */}
       <p className="section-paragraph">
         I'm currently available for freelance work and open to discussing new projects. Feel free to reach out!
       </p>

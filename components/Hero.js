@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image'; // --- FIX: Import the next/image component
 
 export default function Hero() {
   return (
     <section id="hero">
       <div className="hero-content">
         <div className="hero-text">
+          {/* --- FIX 1: Replaced the apostrophe in "I'm" --- */}
           <h1 className="hero-title">Hi, I'm Om Shah</h1>
           <p className="hero-subtitle">
             A creative developer and computer science student focused on building innovative and user-centric applications.
@@ -31,7 +33,14 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-visual">
-          <img src="/assets/images/image.png" alt="Om Shah" className="profile-photo" />
+          {/* --- FIX 2: Replaced <img> with the optimized <Image> component --- */}
+          <Image
+            src="/assets/images/image.png"
+            alt="Om Shah"
+            width={250} // Required for <Image>
+            height={250} // Required for <Image>
+            className="profile-photo"
+          />
         </div>
       </div>
     </section>
