@@ -1,0 +1,468 @@
+/* ---
+   Elegant & Modern Portfolio Stylesheet (Latest Version)
+   --- */
+
+/* 1. CSS Custom Properties (Variables) */
+:root {
+    --bg-color: #02060f; /* Very dark navy blue */
+    --surface-color: #172A45; /* Lighter navy for cards */
+    --primary-text-color: #CCD6F6; /* Light, soft blue/grey for text */
+    --secondary-text-color: #8892B0; /* Muted text color */
+    --accent-color: #64FFDA; /* Bright teal/mint for accents */
+    --font-primary: 'Inter', sans-serif;
+}
+
+/* 2. Base & Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- MODERN: Adds a subtle, slow-moving animated background --- */
+@keyframes move-background {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(-45deg, #02060f, #0A192F, #02060f, #172A45);
+    background-size: 400% 400%;
+    animation: move-background 25s ease infinite;
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    padding: 0 150px;
+}
+
+/* 3. Reusable Components */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+}
+
+.content-section {
+    padding: 100px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-text-color);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.section-paragraph {
+    color: var(--secondary-text-color);
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-bottom: 3rem;
+}
+
+
+/* 4. Header & Navigation */
+#main-header {
+    padding: 1rem 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(2, 6, 15, 0.65); /* Made semi-transparent for glass effect */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(136, 146, 176, 0.1); /* Subtle border */
+    transition: top 0.3s, box-shadow 0.3s;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.nav-contact-btn {
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-contact-btn:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+/* 5. Hero Section */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-title {
+    font-size: clamp(40px, 8vw, 60px);
+    color: var(--primary-text-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--secondary-text-color);
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+}
+
+/* --- CHANGE: Profile photo is always colorful and zooms on hover --- */
+.hero-visual .profile-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    transition: transform 0.3s ease-out;
+}
+
+.hero-visual .profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.hero-socials {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hero-socials a {
+    color: var(--secondary-text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.hero-socials a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* 6. Skills, Projects, & Certifications Cards - MODERN: "Glassmorphism" effect */
+.skill-card,
+.project-card,
+.cert-card {
+    background-color: rgba(23, 42, 69, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(136, 146, 176, 0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card:hover,
+.project-card:hover,
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+    border: 1px solid rgba(100, 255, 218, 0.4);
+}
+
+/* Skills Section specific */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+.skill-card span {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+}
+
+/* Projects Section specific */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex; /* Helps ensure cards stretch to fill height */
+}
+
+.project-card {
+    height: 100%;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    color: var(--primary-text-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    color: var(--secondary-text-color);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tags span {
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    background-color: rgba(100, 255, 218, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Certifications Section specific */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.cert-card {
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.cert-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-top: 5px;
+}
+
+.cert-card h4 { color: var(--primary-text-color); }
+.cert-card p { color: var(--secondary-text-color); font-size: 0.9rem; }
+
+
+/* 7. Contact Section */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    background-color: var(--surface-color);
+    border: 1px solid #233554;
+    border-radius: 4px;
+    padding: 1rem;
+    color: var(--primary-text-color);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#form-message {
+    margin-top: 1rem;
+    height: 1.5rem;
+    font-weight: 500;
+}
+
+
+/* 8. Education Page (Timeline) */
+.timeline {
+    position: relative;
+    padding-left: 50px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #233554;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-icon {
+    position: absolute;
+    left: -15px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--surface-color);
+    border: 2px solid var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-color);
+}
+
+.timeline-content {
+    background-color: transparent;
+    padding-left: 45px;
+}
+.timeline-content h3 { color: var(--primary-text-color); margin-bottom: 0.25rem; }
+.timeline-content p { color: var(--secondary-text-color); }
+.timeline-date {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+
+/* 9. Footer */
+footer {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--secondary-text-color);
+    font-size: 0.8rem;
+}
+
+/* 10. Responsive Design */
+@media (max-width: 1080px) {
+    main { padding: 0 100px; }
+}
+
+@media (max-width: 768px) {
+    main { padding: 0 50px; }
+    #hero { text-align: center; align-items: center; }
+    .hero-content { flex-direction: column-reverse; } /* Puts photo on top on mobile */
+    .hero-text { text-align: center; align-items: center; }
+    .hero-visual { margin-bottom: 2rem; }
+    
+    nav ul { display: none; }
+    .form-group { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+    main { padding: 0 25px; }
+    #main-header { padding: 1rem 25px; }
+}
