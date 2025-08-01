@@ -38,7 +38,7 @@ export default function Contact() {
       <h2 className="section-title">Get In Touch</h2>
       {/* --- The apostrophe has been replaced below to fix the build error --- */}
       <p className="section-paragraph">
-        I'm currently available for freelance work and open to discussing new projects. Feel free to reach out!
+        I am currently available for freelance work and open to discussing new projects. Feel free to reach out!
       </p>
       <form id="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
