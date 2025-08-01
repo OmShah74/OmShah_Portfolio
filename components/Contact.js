@@ -1,6 +1,5 @@
 import { useState } from 'react';
-// --- FIX 1: Updated the package name to resolve the deprecation warning ---
-import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser'; // Using the correct package
 
 export default function Contact() {
   const [name, setName] = useState('');
@@ -37,7 +36,7 @@ export default function Contact() {
   return (
     <section id="contact" className="content-section">
       <h2 className="section-title">Get In Touch</h2>
-      {/* --- FIX 2: Replaced the apostrophe in "I'm" --- */}
+      {/* --- FIX: The apostrophe is replaced with ' --- */}
       <p className="section-paragraph">
         I'm currently available for freelance work and open to discussing new projects. Feel free to reach out!
       </p>
