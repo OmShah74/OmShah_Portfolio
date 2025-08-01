@@ -23,7 +23,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* --- MODERN: Adds a subtle, slow-moving animated background --- */
 @keyframes move-background {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -117,9 +116,9 @@ main {
     width: 100%;
     top: 0;
     z-index: 1000;
-    background-color: rgba(2, 6, 15, 0.65); /* Made semi-transparent for glass effect */
+    background-color: rgba(2, 6, 15, 0.65);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(136, 146, 176, 0.1); /* Subtle border */
+    border-bottom: 1px solid rgba(136, 146, 176, 0.1);
     transition: top 0.3s, box-shadow 0.3s;
 }
 
@@ -200,7 +199,6 @@ nav ul li a:hover {
     gap: 1rem;
 }
 
-/* --- CHANGE: Profile photo is always colorful and zooms on hover --- */
 .hero-visual .profile-photo {
     width: 250px;
     height: 250px;
@@ -232,7 +230,7 @@ nav ul li a:hover {
     transform: translateY(-3px);
 }
 
-/* 6. Skills, Projects, & Certifications Cards - MODERN: "Glassmorphism" effect */
+/* 6. Skills, Projects, & Certifications Cards */
 .skill-card,
 .project-card,
 .cert-card {
@@ -287,7 +285,7 @@ nav ul li a:hover {
 .project-card-link {
     text-decoration: none;
     color: inherit;
-    display: flex; /* Helps ensure cards stretch to fill height */
+    display: flex;
 }
 
 .project-card {
@@ -453,12 +451,31 @@ footer {
 
 @media (max-width: 768px) {
     main { padding: 0 50px; }
-    #hero { text-align: center; align-items: center; }
-    .hero-content { flex-direction: column-reverse; } /* Puts photo on top on mobile */
+    
+    /* --- FIX 1: Add padding to the top of the hero section to prevent overlap with the fixed header --- */
+    #hero { 
+        text-align: center; 
+        align-items: center;
+        padding-top: 120px; /* Pushes content down below the header */
+    }
+
+    .hero-content { flex-direction: column-reverse; }
     .hero-text { text-align: center; align-items: center; }
     .hero-visual { margin-bottom: 2rem; }
     
-    nav ul { display: none; }
+    /* --- FIX 2: Make the navigation menu stack vertically and be visible --- */
+    nav {
+        flex-direction: column; /* Stacks logo and nav links */
+        gap: 1rem;
+    }
+    
+    nav ul { 
+        /* The `display: none;` rule has been removed */
+        justify-content: center; /* Center the links */
+        flex-wrap: wrap; /* Allows links to wrap to the next line if needed */
+        gap: 1.5rem; /* Space between the links */
+    } 
+    
     .form-group { flex-direction: column; }
 }
 
