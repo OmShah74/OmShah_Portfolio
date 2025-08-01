@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import Image from 'next/image'; // Required for the fix
+import Image from 'next/image';
 
 export default function Hero() {
   return (
     <section id="hero">
       <div className="hero-content">
         <div className="hero-text">
-          {/* --- FIX: The apostrophe is replaced with ' --- */}
           <h1 className="hero-title">Hi, I'm Om Shah</h1>
           <p className="hero-subtitle">
             A creative developer and computer science student focused on building innovative and user-centric applications.
@@ -19,7 +18,6 @@ export default function Hero() {
               Download Resume
             </a>
           </div>
-
           <div className="hero-socials">
             <a href="https://github.com/OmShah74" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <i className="fab fa-github"></i>
@@ -33,7 +31,6 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-visual">
-          {/* --- FIX: Using the optimized <Image> component --- */}
           <Image
             src="/assets/images/image.png"
             alt="Om Shah"

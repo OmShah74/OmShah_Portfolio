@@ -36,7 +36,7 @@ export default function Contact() {
   return (
     <section id="contact" className="content-section">
       <h2 className="section-title">Get In Touch</h2>
-      {/* --- FIX: The apostrophe is replaced with ' --- */}
+      {/* --- The apostrophe has been replaced below to fix the build error --- */}
       <p className="section-paragraph">
         I'm currently available for freelance work and open to discussing new projects. Feel free to reach out!
       </p>
