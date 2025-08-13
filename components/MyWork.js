@@ -35,7 +35,7 @@ export default function MyWork() {
         </a>
 
         {/* --- Card 4: E-Commerce (Placeholder Link) --- */}
-        <a href="https://github.com/OmShah74" target="_blank" rel="noopener noreferrer" className="project-card-link">
+        <a href="https://github.com/OmShah74/Ecommerce_payment" target="_blank" rel="noopener noreferrer" className="project-card-link">
           <div className="project-card">
             <h3 className="project-title">Modern E-Commerce Website</h3>
             <p className="project-description">A responsive e-commerce app using React with Sanity CMS for dynamic content and Stripe for secure payments. Deployed on Vercel.</p>
@@ -53,7 +53,7 @@ export default function MyWork() {
         </a>
 
         {/* --- Card 6: Tumour Classification (Placeholder Link) --- */}
-        <a href="https://github.com/OmShah74" target="_blank" rel="noopener noreferrer" className="project-card-link">
+        <a href="https://github.com/OmShah74/Tumor_Classification" target="_blank" rel="noopener noreferrer" className="project-card-link">
           <div className="project-card">
             <h3 className="project-title">Tumour Classification System</h3>
             <p className="project-description">A Machine Learning system to detect and classify tumours using VGG16, custom CNN models, and a Flask interface.</p>
