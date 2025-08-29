@@ -116,15 +116,7 @@ export default function About() {
                 <span className="stat-label">Projects Built</span>
               </div>
             </div>
-            <div className="stat-card">
-              <div className="stat-icon">
-                <i className="fas fa-award"></i>
-              </div>
-              <div className="stat-info">
-                <span className="stat-number">3.96</span>
-                <span className="stat-label">GPA Achievement</span>
-              </div>
-            </div>
+            
             <div className="stat-card">
               <div className="stat-icon">
                 <i className="fas fa-certificate"></i>
