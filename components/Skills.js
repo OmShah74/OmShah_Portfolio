@@ -5,21 +5,21 @@ export default function Skills() {
     const skillsRef = useRef(null);
 
     const skills = [
-        { icon: "devicon-cplusplus-plain", name: "C++", category: "Programming", level: 90 },
-        { icon: "devicon-java-plain", name: "Java", category: "Programming", level: 85 },
-        { icon: "devicon-python-plain", name: "Python", category: "Programming", level: 95 },
-        { icon: "devicon-html5-plain", name: "HTML5", category: "Frontend", level: 90 },
-        { icon: "devicon-css3-plain", name: "CSS3", category: "Frontend", level: 88 },
-        { icon: "devicon-javascript-plain", name: "JavaScript", category: "Frontend", level: 92 },
-        { icon: "devicon-react-original", name: "React", category: "Frontend", level: 88 },
-        { icon: "devicon-nodejs-plain", name: "Node.js", category: "Backend", level: 85 },
-        { icon: "devicon-express-original", name: "Express", category: "Backend", level: 82 },
-        { icon: "devicon-mongodb-plain", name: "MongoDB", category: "Database", level: 80 },
-        { icon: "devicon-mysql-plain", name: "MySQL", category: "Database", level: 78 },
-        { icon: "devicon-django-plain", name: "Django", category: "Backend", level: 75 },
-        { icon: "devicon-flask-original", name: "Flask", category: "Backend", level: 80 },
-        { icon: "devicon-git-plain", name: "Git", category: "Tools", level: 85 },
-        { icon: "fas fa-brain", name: "AI/ML", category: "AI", level: 88 }
+        { icon: "devicon-cplusplus-plain", level: 90 },
+        { icon: "devicon-java-plain", name: "Java",  level: 85 },
+        { icon: "devicon-python-plain", name: "Python", level: 95 },
+        { icon: "devicon-html5-plain", name: "HTML5",level: 90 },
+        { icon: "devicon-css3-plain", name: "CSS3",  level: 88 },
+        { icon: "devicon-javascript-plain", name: "JavaScript",  level: 92 },
+        { icon: "devicon-react-original", name: "React",  level: 88 },
+        { icon: "devicon-nodejs-plain", name: "Node.js", level: 85 },
+        { icon: "devicon-express-original", name: "Express",level: 82 },
+        { icon: "devicon-mongodb-plain", name: "MongoDB", level: 80 },
+        { icon: "devicon-mysql-plain", name: "MySQL",  level: 78 },
+        { icon: "devicon-django-plain", name: "Django",  level: 75 },
+        { icon: "devicon-flask-original", name: "Flask", level: 80 },
+        { icon: "devicon-git-plain", name: "Git", level: 85 },
+        { icon: "fas fa-brain", name: "AI/ML",  level: 88 }
     ];
 
     useEffect(() => {
