@@ -17,7 +17,7 @@ export default function Certifications() {
 
         {/* Card 2: Google Data Analytics */}
         <div className="cert-card">
-          <div className="cert-icon"><i className="fab fa-coursera"></i></div>
+          <div className="cert-icon"><i className="fab fa-google"></i></div>
           <div>
             <h4>Google Data Analytics Professional Certificate</h4>
             <p>Coursera</p>
@@ -29,7 +29,7 @@ export default function Certifications() {
           <div className="cert-icon"><i className="fas fa-atom"></i></div>
           <div>
             <h4>Quantum Machine Learning</h4>
-            <p>NPTEL - IIT Madras</p>
+            <p>EduXLabs - IIT Madras</p>
           </div>
         </div>
 
