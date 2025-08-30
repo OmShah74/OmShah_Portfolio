@@ -1,63 +1,60 @@
 import { useState, useEffect, useRef } from 'react';
 
 export default function Skills() {
-    const [visibleSkills, setVisibleSkills] = useState(new Set());
-    const skillsRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const skillsSectionRef = useRef(null);
 
     const skills = [
-        { icon: "devicon-cplusplus-plain",name: "C++", level: 90 },
-        { icon: "devicon-java-plain", name: "Java",  level: 85 },
-        { icon: "devicon-python-plain", name: "Python", level: 95 },
-        { icon: "devicon-html5-plain", name: "HTML5",level: 90 },
-        { icon: "devicon-css3-plain", name: "CSS3",  level: 88 },
-        { icon: "devicon-javascript-plain", name: "JavaScript",  level: 92 },
-        { icon: "devicon-react-original", name: "React",  level: 88 },
-        { icon: "devicon-nodejs-plain", name: "Node.js", level: 85 },
-        { icon: "devicon-express-original", name: "Express",level: 82 },
-        { icon: "devicon-mongodb-plain", name: "MongoDB", level: 80 },
-        { icon: "devicon-mysql-plain", name: "MySQL",  level: 78 },
-        { icon: "devicon-django-plain", name: "Django",  level: 75 },
-        { icon: "devicon-flask-original", name: "Flask", level: 80 },
-        { icon: "devicon-git-plain", name: "Git", level: 85 },
-        { icon: "fas fa-brain", name: "AI/ML",  level: 88 }
+        { icon: "devicon-cplusplus-plain",name: "C++" },
+        { icon: "devicon-java-plain", name: "Java" },
+        { icon: "devicon-python-plain", name: "Python" },
+        { icon: "devicon-html5-plain", name: "HTML5" },
+        { icon: "devicon-css3-plain", name: "CSS3" },
+        { icon: "devicon-javascript-plain", name: "JavaScript" },
+        { icon: "devicon-react-original", name: "React" },
+        { icon: "devicon-nodejs-plain", name: "Node.js" },
+        { icon: "devicon-express-original", name: "Express" },
+        { icon: "devicon-mongodb-plain", name: "MongoDB" },
+        { icon: "devicon-mysql-plain", name: "MySQL" },
+        { icon: "devicon-django-plain", name: "Django" },
+        { icon: "devicon-flask-original", name: "Flask" },
+        { icon: "devicon-git-plain", name: "Git" },
+        { icon: "fas fa-brain", name: "AI/ML" }
     ];
 
+    // --- THIS IS THE CORRECTED LOGIC ---
     useEffect(() => {
         const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            setVisibleSkills(prev => new Set([...prev, index]));
-                        }, index * 100);
-                    }
-                });
+            ([entry]) => {
+                // THE FIX: Directly set the visibility based on whether it's intersecting or not.
+                // This handles both appearing and disappearing.
+                setIsVisible(entry.isIntersecting);
             },
-            { threshold: 0.1 }
+            { 
+                threshold: 0.2 // Trigger when 20% of the section is visible
+            }
         );
 
-        if (skillsRef.current) {
-            const skillCards = skillsRef.current.querySelectorAll('.skill-card');
-            skillCards.forEach(card => observer.observe(card));
+        const currentRef = skillsSectionRef.current; // Capture ref for cleanup
+
+        if (currentRef) {
+            observer.observe(currentRef);
         }
 
-        return () => observer.disconnect();
-    }, []);
-
-    const getCategoryColor = (category) => {
-        const colors = {
-            'Programming': 'rgba(0, 245, 255, 0.2)',
-            'Frontend': 'rgba(139, 92, 246, 0.2)',
-            'Backend': 'rgba(245, 158, 11, 0.2)',
-            'Database': 'rgba(34, 197, 94, 0.2)',
-            'Tools': 'rgba(239, 68, 68, 0.2)',
-            'AI': 'rgba(168, 85, 247, 0.2)'
+        return () => {
+            // Clean up by unobserving the ref when the component unmounts
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
         };
-        return colors[category] || 'rgba(0, 245, 255, 0.2)';
-    };
+    }, []); // The empty dependency array is correct
 
     return (
-        <section id="skills" className="content-section">
+        <section 
+            id="skills" 
+            className={`content-section skills-section ${isVisible ? 'skills-visible' : ''}`}
+            ref={skillsSectionRef}
+        >
             <div className="section-header">
                 <h2 className="section-title" data-text="Core Technologies">Core Technologies</h2>
                 <div className="tech-stats">
@@ -72,32 +69,20 @@ export default function Skills() {
                 </div>
             </div>
 
-            <div className="skills-container" ref={skillsRef}>
+            <div className="skills-container">
                 <div className="skills-grid">
                     {skills.map((skill, index) => (
                         <div 
                             key={skill.name}
-                            className={`skill-card ${visibleSkills.has(index) ? 'skill-visible' : ''}`}
-                            style={{
-                                animationDelay: `${index * 0.1}s`,
-                                '--category-color': getCategoryColor(skill.category),
-                                '--skill-level': `${skill.level}%`
-                            }}
+                            className="skill-card"
+                            style={{ transitionDelay: `${index * 0.05}s` }}
                         >
                             <div className="skill-icon-container">
                                 <i className={skill.icon}></i>
-                                <div className="skill-ring">
-                                    <div className="skill-progress"></div>
-                                </div>
                             </div>
                             <div className="skill-info">
                                 <span className="skill-name">{skill.name}</span>
-                                <span className="skill-category">{skill.category}</span>
-                                <div className="skill-level-bar">
-                                    <div className="skill-level-fill"></div>
-                                </div>
                             </div>
-                            <div className="skill-hover-effect"></div>
                         </div>
                     ))}
                 </div>

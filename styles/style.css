@@ -79,7 +79,7 @@ body::after {
 }
 
 main {
-    padding: 12rem 15rem 0;
+    padding: 2rem 15rem 0;
     position: relative;
     z-index: 1;
 }
@@ -125,7 +125,7 @@ main {
 }
 
 .btn-primary:hover {
-    transform: translateY(-8px) rotateX(15deg);
+    transform: translateY(-6px);
     box-shadow: 
         var(--shadow-glow),
         0 15px 35px rgba(0, 245, 255, 0.4),
@@ -139,7 +139,7 @@ main {
 }
 
 .btn-secondary:hover {
-    transform: translateY(-8px) rotateX(15deg);
+    transform: translateY(-6px);
     background: rgba(0, 245, 255, 0.1);
     box-shadow: var(--shadow-elevation);
 }
@@ -602,7 +602,7 @@ nav ul li a:hover::before {
 .github:hover {
     background: rgba(88, 166, 255, 0.1);
     border-color: #58a6ff;
-    transform: translateY(-8px) rotateX(15deg);
+    transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(88, 166, 255, 0.3);
 }
 
@@ -614,7 +614,7 @@ nav ul li a:hover::before {
 .linkedin:hover {
     background: rgba(10, 102, 194, 0.1);
     border-color: #0a66c2;
-    transform: translateY(-8px) rotateX(15deg);
+    transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(10, 102, 194, 0.3);
 }
 
@@ -626,7 +626,7 @@ nav ul li a:hover::before {
 .leetcode:hover {
     background: rgba(255, 161, 22, 0.1);
     border-color: #ffa116;
-    transform: translateY(-8px) rotateX(15deg);
+    transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(255, 161, 22, 0.3);
 }
 
@@ -794,6 +794,7 @@ nav ul li a:hover::before {
     transform: translateY(0);
     opacity: 1;
 }
+
 
 .about-bg-gradient {
     position: absolute;
@@ -1194,6 +1195,34 @@ nav ul li a:hover::before {
     color: var(--text-primary);
 }
 
+/* Add these styles to your main CSS file */
+
+/* 1. Initial "hidden" state for the entire skills section */
+.skills-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 2. Final "visible" state when the 'skills-visible' class is added by React */
+.skills-section.skills-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. (Optional but Recommended) Add a staggered animation for the cards inside */
+/* This will make the cards appear one after another AFTER the section is visible */
+.skills-section .skill-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.skills-section.skills-visible .skill-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* 6. Advanced Card Styles with 3D Effects */
 .skill-card,
 .project-card,
@@ -1237,7 +1266,7 @@ nav ul li a:hover::before {
 .skill-card:hover,
 .project-card:hover,
 .cert-card:hover {
-    transform: translateY(-15px) rotateX(10deg) rotateY(5deg);
+    transform: translateY(-10px);
     box-shadow: 
         0 25px 50px rgba(0, 0, 0, 0.3),
         0 0 30px rgba(0, 245, 255, 0.2),
