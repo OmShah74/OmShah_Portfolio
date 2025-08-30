@@ -37,7 +37,7 @@
 
 html {
     scroll-behavior:smooth;
-    perspective: 1000px;
+    
     font-size: 62.5%;
 }
 
@@ -79,7 +79,7 @@ body::after {
 }
 
 main {
-    padding: 0 15rem;
+    padding: 12rem 15rem 0;
     position: relative;
     z-index: 1;
 }
