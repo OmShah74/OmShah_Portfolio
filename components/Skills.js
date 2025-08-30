@@ -5,7 +5,7 @@ export default function Skills() {
     const skillsRef = useRef(null);
 
     const skills = [
-        { icon: "devicon-cplusplus-plain", level: 90 },
+        { icon: "devicon-cplusplus-plain",name: "C++", level: 90 },
         { icon: "devicon-java-plain", name: "Java",  level: 85 },
         { icon: "devicon-python-plain", name: "Python", level: 95 },
         { icon: "devicon-html5-plain", name: "HTML5",level: 90 },

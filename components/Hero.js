@@ -51,7 +51,7 @@ export default function Hero() {
           </h1>
           <div className="hero-tagline">
             <span className="tagline-text">Creative Developer</span>
-            <span className="tagline-separator">×</span>
+            <span className="tagline-separator">+</span>
             <span className="tagline-text">AI Enthusiast</span>
           </div>
           <p className="hero-subtitle">

@@ -63,7 +63,7 @@ export default function About() {
       <div className="about-container">
         <div className="about-content">
           <div className="about-header">
-            <h2 className="section-title" data-text="About Me">About Me</h2>
+            <h2 className="section-title" >About Me</h2>
             <div className="title-decoration">
               <div className="decoration-line"></div>
               <div className="decoration-dot"></div>
@@ -74,7 +74,7 @@ export default function About() {
             <p className="section-paragraph about-description">
               I am a <span className="highlight">Computer Engineering student</span> at 
               <span className="highlight"> MPSTME, NMIMS University</span>, with a solid technical foundation in 
-              <span className="highlight">software development</span>, <span className="highlight">machine learning</span>, 
+              <span className="highlight"> software development</span>, <span className="highlight">machine learning</span>, 
               and <span className="highlight">full-stack web technologies</span>. 
             </p>
             
